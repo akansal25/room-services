@@ -1,0 +1,10 @@
+server:
+  port: 8102
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      enabled: true
