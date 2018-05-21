@@ -27,6 +27,7 @@ public class RoomController {
             return Collections.singletonList(this.roomRepository.findByRoomNumber(roomNumber));
         }
 
+        System.out.println("Find Room details for this room number" + roomNumber);
         return (List<Room>) this.roomRepository.findAll();
 
     }
