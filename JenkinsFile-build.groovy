@@ -1,8 +1,5 @@
 node(){
 
-
-    registry_url = registry2.swarm.devfactory.com/test/${container_name}
-
     stage "Build Room Services"
         echo "clean and build room services"
         sh "gradle clean build"
