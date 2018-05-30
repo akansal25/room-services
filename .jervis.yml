@@ -32,7 +32,6 @@ env:
 script:
   - ./gradlew clean build
   - echo "Hello World."
-  - echo "Git Commit:: ${GIT_COMMIT}"
   - echo docker build -t ${JERVIS_SERVER_IMAGE_BASE_URL}:298076 .
 
 jenkins:
