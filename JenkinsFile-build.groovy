@@ -3,7 +3,7 @@ node(){
 
     stage "Build Room Services"
         echo "clean and build room services"
-        sh "gradle clean build"
+        sh "./gradlew clean build"
         echo "room services build completed ${env.BUILD_ID}"
 
     stage "Building ${container_name} Container for Core-Services"
