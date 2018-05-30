@@ -30,7 +30,7 @@ env:
     - DOCKER_HOST=tcp://dlb1.aureacentral.com:2375
 
 script:
-  - gradle clean build
+  - gradlew clean build
   - echo "Hello World."
   - echo docker build -t ${JERVIS_SERVER_IMAGE_BASE_URL}:${GIT_COMMIT} .
 
