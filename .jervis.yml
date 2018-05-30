@@ -29,9 +29,10 @@ env:
     - JERVIS_SERVER_IMAGE_BASE_URL=registry2.swarm.devfactory.com/aurea/central/jervis/server
     - DOCKER_HOST=tcp://dlb1.aureacentral.com:2375
 
-script: 
+script:
+  - gradle clean build
   - echo "Hello World."
-  - echo docker build -t ${JERVIS_SERVER_IMAGE_BASE_URL}:${GIT_COMMIT} .jervis_files/docker
+  - echo docker build -t ${JERVIS_SERVER_IMAGE_BASE_URL}:${GIT_COMMIT} .
 
 jenkins:
   pipeline_jenkinsfile: aurea-central-jervis/pipelines/SaaS
