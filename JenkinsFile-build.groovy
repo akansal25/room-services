@@ -1,4 +1,4 @@
-node(docker){
+node('docker'){
 
 
     stage "Build Room Services"
