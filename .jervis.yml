@@ -1,4 +1,46 @@
-language: java
+#######################
+# Aurea Central Jervis
+#######################
+# User guide and documentation can be found at: https://github.com/trilogy-group/central-jervis
+# This project is based on https://github.com/samrocketman/jervis
+
+language: shell
+
+# variables are accessible from pipeline
+variables:
+  - MY_VAR=xyz
+  - DEPLOYMENT_TARGET=docker
+
+notifications:
+# on_success, on_failure modes
+# - always: always send a notification
+# - never: never send a notification
+# possible notifications options - slack, email
+  slack:
+    # Configure the Jenkins integration for each channel
+    # https://my.slack.com/services/new/jenkins-ci
+    rooms:
+      - channel: "devfactorydev:VkVhrfzU7Lx7dFZWxJtzC4ku:#jervis_builds"
+        on_success: never
+        on_failure: always
+
+env:
+  global:
+    - JERVIS_SERVER_IMAGE_BASE_URL=registry2.swarm.devfactory.com/aurea/central/jervis/server
+    - DOCKER_HOST=tcp://dlb1.aureacentral.com:2375
+
+script: 
+  - echo "Hello World."
+  - echo docker build -t ${JERVIS_SERVER_IMAGE_BASE_URL}:${GIT_COMMIT} .jervis_files/docker
 
 jenkins:
-  pipeline_jenkinsfile: 'JenkinsFile-build.groovy'
+  pipeline_jenkinsfile: aurea-central-jervis/pipelines/SaaS
+  collect: []
+  
+branches:
+  only:
+  - master
+  - develop
+  - release
+  - hotfix
+  - /^feature\/.*$/
