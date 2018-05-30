@@ -1,7 +1,7 @@
 node('docker'){
 
 
-    stage 'Build Room Services' {
+    stage 'build' {
         echo "clean and build room services"
         sh "gradle clean build"
     }
