@@ -2,8 +2,8 @@ node('docker'){
 
 
     stage 'build' {
-        echo "clean and build room services"
-        sh "gradle clean build"
+//        echo "clean and build room services"
+//        sh "gradle clean build"
     }
         //echo "room services build completed ${env.BUILD_ID}"
 
